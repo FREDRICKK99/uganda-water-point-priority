@@ -1,0 +1,365 @@
+{
+ "n_rural": 96271,
+ "n_labelled": 78005,
+ "class_share": {
+  "Low": 0.377,
+  "Medium": 0.413,
+  "High": 0.21
+ },
+ "n_districts": 134,
+ "n_subcounties": 1453,
+ "missing": {
+  "management_clean": 0.114,
+  "install_year": 0.129,
+  "age_years": 0.131,
+  "usage_capacity": 0.138,
+  "local_population_1km": 0.166,
+  "pressure_score": 0.19,
+  "water_tech_category": 0.472,
+  "pay_clean": 0.647
+ },
+ "share_reported_2010": 0.705,
+ "split": {
+  "train_n": 64091,
+  "test_n": 13914,
+  "train_districts": 107,
+  "test_districts": 27
+ },
+ "cv": {
+  "Logistic Regression": {
+   "macro_f1": 0.835,
+   "sd": 0.007,
+   "params": {
+    "C": 1
+   }
+  },
+  "Random Forest": {
+   "macro_f1": 0.796,
+   "sd": 0.028,
+   "params": {
+    "max_depth": 20,
+    "min_samples_leaf": 2
+   }
+  },
+  "XGBoost": {
+   "macro_f1": 0.842,
+   "sd": 0.002,
+   "params": {
+    "learning_rate": 0.05,
+    "max_depth": 6
+   }
+  }
+ },
+ "test": {
+  "Baseline (majority class)": {
+   "Accuracy": 0.4214,
+   "Macro precision": 0.1405,
+   "Macro recall": 0.3333,
+   "Macro F1": 0.1977,
+   "Weighted F1": 0.2499,
+   "High: precision": 0.0,
+   "High: recall": 0.0,
+   "High: F1": 0.0,
+   "ROC-AUC (ovr)": 0.5
+  },
+  "Logistic Regression": {
+   "Accuracy": 0.821,
+   "Macro precision": 0.812,
+   "Macro recall": 0.8269,
+   "Macro F1": 0.8186,
+   "Weighted F1": 0.8207,
+   "High: precision": 0.7681,
+   "High: recall": 0.8478,
+   "High: F1": 0.8059,
+   "ROC-AUC (ovr)": 0.9372
+  },
+  "Random Forest": {
+   "Accuracy": 0.808,
+   "Macro precision": 0.803,
+   "Macro recall": 0.8026,
+   "Macro F1": 0.8028,
+   "Weighted F1": 0.8081,
+   "High: precision": 0.776,
+   "High: recall": 0.776,
+   "High: F1": 0.776,
+   "ROC-AUC (ovr)": 0.9287
+  },
+  "XGBoost": {
+   "Accuracy": 0.8178,
+   "Macro precision": 0.8069,
+   "Macro recall": 0.8256,
+   "Macro F1": 0.8149,
+   "Weighted F1": 0.8177,
+   "High: precision": 0.7505,
+   "High: recall": 0.8546,
+   "High: F1": 0.7992,
+   "ROC-AUC (ovr)": 0.9389
+  }
+ },
+ "selected": "Logistic Regression",
+ "selected_confusion": [
+  [
+   4817,
+   737,
+   0
+  ],
+  [
+   735,
+   4490,
+   639
+  ],
+  [
+   41,
+   339,
+   2116
+  ]
+ ],
+ "high_missed_as_low": 0.016,
+ "low_flagged_high": 0.0,
+ "shap_importance": {
+  "local_population_1km": 3.7078,
+  "n_func_1km": 2.2196,
+  "usage_capacity": 2.0384,
+  "n_func_3km": 0.8929,
+  "water_tech_category": 0.644,
+  "dist_nearest_func_m": 0.5566,
+  "region": 0.4872,
+  "water_source_clean": 0.4341,
+  "management_clean": 0.2894,
+  "n_wp_3km": 0.2882,
+  "functional": 0.2548,
+  "n_wp_1km": 0.1788,
+  "dist_nearest_wp_m": 0.1691,
+  "pay_clean": 0.1388,
+  "distance_to_secondary_road": 0.0806,
+  "distance_to_city": 0.0466,
+  "distance_to_tertiary_road": 0.0249,
+  "distance_to_town": 0.0242,
+  "age_years": 0.0155,
+  "cluster_size": 0.0129,
+  "distance_to_primary_road": 0.0047,
+  "facility_type": 0.0
+ },
+ "ablation_no_population": {
+  "with population": {
+   "Accuracy": 0.821,
+   "Macro precision": 0.812,
+   "Macro recall": 0.8269,
+   "Macro F1": 0.8186,
+   "Weighted F1": 0.8207,
+   "High: precision": 0.7681,
+   "High: recall": 0.8478,
+   "High: F1": 0.8059,
+   "ROC-AUC (ovr)": 0.9372
+  },
+  "without population": {
+   "Accuracy": 0.574,
+   "Macro precision": 0.5658,
+   "Macro recall": 0.5875,
+   "Macro F1": 0.5718,
+   "Weighted F1": 0.5673,
+   "High: precision": 0.5407,
+   "High: recall": 0.6334,
+   "High: F1": 0.5834,
+   "ROC-AUC (ovr)": 0.76
+  }
+ },
+ "by_region": {
+  "Central": {
+   "n test points": 2327.0,
+   "share High (true)": 0.294,
+   "Accuracy": 0.828,
+   "Macro F1": 0.832,
+   "High: recall": 0.934
+  },
+  "Eastern": {
+   "n test points": 4767.0,
+   "share High (true)": 0.18,
+   "Accuracy": 0.807,
+   "Macro F1": 0.797,
+   "High: recall": 0.781
+  },
+  "Northern": {
+   "n test points": 961.0,
+   "share High (true)": 0.214,
+   "Accuracy": 0.814,
+   "Macro F1": 0.816,
+   "High: recall": 0.883
+  },
+  "Western": {
+   "n test points": 5859.0,
+   "share High (true)": 0.127,
+   "Accuracy": 0.831,
+   "Macro F1": 0.812,
+   "High: recall": 0.835
+  }
+ },
+ "oof_macro_f1": 0.834,
+ "map": {
+  "n_subcounties": 1252,
+  "spearman_pred_vs_obs": 0.92,
+  "counts": {
+   "Low": 285,
+   "Medium": 707,
+   "High": 260
+  }
+ },
+ "top15": [
+  {
+   "subcounty": "Wakiso / Ndejje Division",
+   "district": "Wakiso",
+   "region": "Central",
+   "n_points": 13,
+   "pop_1km_median": 15154.0,
+   "share_functional": 1.0,
+   "pred_score": 2.0,
+   "obs_score": 2.0
+  },
+  {
+   "subcounty": "Bugweri / Busembatia Town Council",
+   "district": "Bugweri",
+   "region": "Eastern",
+   "n_points": 10,
+   "pop_1km_median": 12258.5,
+   "share_functional": 1.0,
+   "pred_score": 1.995,
+   "obs_score": 2.0
+  },
+  {
+   "subcounty": "Tororo / Malaba Town Council",
+   "district": "Tororo",
+   "region": "Eastern",
+   "n_points": 10,
+   "pop_1km_median": 10229.0,
+   "share_functional": 1.0,
+   "pred_score": 1.983,
+   "obs_score": 2.0
+  },
+  {
+   "subcounty": "Mbale / Bukasakya",
+   "district": "Mbale",
+   "region": "Eastern",
+   "n_points": 33,
+   "pop_1km_median": 10253.0,
+   "share_functional": 0.303,
+   "pred_score": 1.981,
+   "obs_score": 1.97
+  },
+  {
+   "subcounty": "Mbale / Nakaloke Town Council",
+   "district": "Mbale",
+   "region": "Eastern",
+   "n_points": 40,
+   "pop_1km_median": 9779.0,
+   "share_functional": 0.35,
+   "pred_score": 1.968,
+   "obs_score": 1.95
+  },
+  {
+   "subcounty": "Yumbe / Yumbe Town Council",
+   "district": "Yumbe",
+   "region": "Northern",
+   "n_points": 15,
+   "pop_1km_median": 6742.0,
+   "share_functional": 1.0,
+   "pred_score": 1.957,
+   "obs_score": 1.933
+  },
+  {
+   "subcounty": "Mbale / Nakaloke",
+   "district": "Mbale",
+   "region": "Eastern",
+   "n_points": 21,
+   "pop_1km_median": 5780.0,
+   "share_functional": 0.19,
+   "pred_score": 1.954,
+   "obs_score": 1.952
+  },
+  {
+   "subcounty": "Bugiri / Western Division",
+   "district": "Bugiri",
+   "region": "Eastern",
+   "n_points": 11,
+   "pop_1km_median": 19188.0,
+   "share_functional": 1.0,
+   "pred_score": 1.935,
+   "obs_score": 2.0
+  },
+  {
+   "subcounty": "Buikwe / Njeru Division",
+   "district": "Buikwe",
+   "region": "Central",
+   "n_points": 18,
+   "pop_1km_median": 7184.5,
+   "share_functional": 0.889,
+   "pred_score": 1.902,
+   "obs_score": 1.889
+  },
+  {
+   "subcounty": "Wakiso / Wakiso Town Council",
+   "district": "Wakiso",
+   "region": "Central",
+   "n_points": 46,
+   "pop_1km_median": 6998.5,
+   "share_functional": 0.804,
+   "pred_score": 1.893,
+   "obs_score": 1.674
+  },
+  {
+   "subcounty": "Buliisa / Butiaba",
+   "district": "Buliisa",
+   "region": "Western",
+   "n_points": 15,
+   "pop_1km_median": 3675.0,
+   "share_functional": 0.333,
+   "pred_score": 1.879,
+   "obs_score": 1.933
+  },
+  {
+   "subcounty": "Butaleja / Mazimasa",
+   "district": "Butaleja",
+   "region": "Eastern",
+   "n_points": 65,
+   "pop_1km_median": 3869.0,
+   "share_functional": 0.231,
+   "pred_score": 1.87,
+   "obs_score": 1.831
+  },
+  {
+   "subcounty": "Ntoroko / Kanara Town Council",
+   "district": "Ntoroko",
+   "region": "Western",
+   "n_points": 11,
+   "pop_1km_median": 4686.0,
+   "share_functional": 0.727,
+   "pred_score": 1.867,
+   "obs_score": 1.727
+  },
+  {
+   "subcounty": "Bunyangabu / Rwimi Town Council",
+   "district": "Bunyangabu",
+   "region": "Western",
+   "n_points": 14,
+   "pop_1km_median": 3406.0,
+   "share_functional": 0.714,
+   "pred_score": 1.86,
+   "obs_score": 2.0
+  },
+  {
+   "subcounty": "Yumbe / Kuru",
+   "district": "Yumbe",
+   "region": "Northern",
+   "n_points": 40,
+   "pop_1km_median": 4661.5,
+   "share_functional": 0.9,
+   "pred_score": 1.854,
+   "obs_score": 1.975
+  }
+ ],
+ "high_by_region": {
+  "Central": 65,
+  "Eastern": 100,
+  "Northern": 27,
+  "Western": 68
+ }
+}

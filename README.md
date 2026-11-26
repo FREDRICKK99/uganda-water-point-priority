@@ -25,7 +25,6 @@ maps priority by sub-county.
 | `outputs/priority_map.html` | Interactive sub-county priority map (open in a browser) |
 | `outputs/subcounty_priority.csv` | Ranked list of sub-counties with their priority score |
 | `outputs/results.json` | Key numbers used in the report |
-| `report/` | Project report (PDF and Word) |
 
 ## How to run
 ```
